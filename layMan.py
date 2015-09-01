@@ -26,10 +26,16 @@ def setWindowPos(hwnd, lParam):
     if not shwnd in windows.keys():
         return True
 
+    if not shwnd in windows.keys():
+        return True
+    
     rect = windows[shwnd]
+    w = rect[2] - rect[0]
+    h = rect[3] - rect[1]
+    if w == 0 or h == 0:
+        return True
+    
     try:
-        w = rect[2] - rect[0]
-        h = rect[3] - rect[1]
         win32gui.MoveWindow(hwnd, rect[0], rect[1], w, h, True)
     except:
         pass
