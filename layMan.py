@@ -55,6 +55,9 @@ if __name__ == '__main__':
         fp.write(jsonData)
         fp.close()
     else:
+        if os.path.exists(sys.argv[1]):
+            dat = sys.argv[1]
+
         if os.path.exists(dat):
             fp = open(dat)
             jsonData = fp.read()
